@@ -74,7 +74,7 @@ def check_reasonable_ratios(host, data):
         ratio = dump.get(name)
         if not ratio:
             continue
-        if ratio != reasonable_ratios[name]:
+        if abs(ratio - reasonable_ratios[name]) > 1.0e-6:
             unreasonable_ratios.append(name)
     if unreasonable_ratios:
         msg = msg % ', '.join(sorted(unreasonable_ratios))

@@ -22,5 +22,5 @@ def check_nearfull():
                 osd_map = metadata['cluster']['status']['osdmap']['osdmap']
         except KeyError:
                 return
-        if osd_map['nearfull']:
+        if osd_map.get('nearfull'):
                 return code, msg
